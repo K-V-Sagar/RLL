@@ -12,8 +12,8 @@ public class Policy {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int policyId;
-	private String policyType;
-	private String policyNum;
+	private String policyType; // Life, Travel, Motor and Health
+	private String policyNum; // auto-generated in frontend
 	private int userId;
 	private int approval;
 	public Policy() {
