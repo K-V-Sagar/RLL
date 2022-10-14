@@ -1,0 +1,25 @@
+*Admin Actions:
+
+Login
+View all customers
+Policy page (CRUD)
+Approve Policy (0-not, 1-yes & 2-pending)
+Query page (View questions and write ans)
+
+
+*User Actions:
+
+Create Account
+Login 
+Update Profile
+Apply policy page (view policies and apply)
+History page (view all policies applied by user)
+Query page (Ask question)
+
+
+*Homepage:
+
+Admin Portal
+User Portal
+About us
+Conatct us

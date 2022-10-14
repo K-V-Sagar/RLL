@@ -1,0 +1,26 @@
+admin side
+
+policy generation (CRUD)-> policy approved/not 
+
+
+
+
+policy table:
+
+Int id (auto gen)
+String policyType (Life, travel, motor health)
+String policyNum  (autogen)
+Int userId 
+Int Approval
+
+
+user-policy table: (one user many policies)
+
+id (auto gen)
+user id
+policyNum
+
+
+1 - A
+1 - B
+2 - A

@@ -1,0 +1,22 @@
+User side
+
+user registration -> apply policy
+
+
+user table:
+
+id (auto gen)
+String ->email
+String ->passoword
+String ->name
+String ->address
+String ->phoneNuum
+String ->policyNum
+
+
+Question table:
+
+id (auto gen)
+user id 
+String Question
+String Answer
