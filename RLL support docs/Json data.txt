@@ -1,0 +1,8 @@
+// CREATE POLICY
+
+{   
+    "approval":2,
+    "policyNum":"12345",
+    "policyType":"Travel",
+    "userId":4
+}
