@@ -17,6 +17,7 @@ import com.insurance.dao.UserRepository;
 import com.insurance.entity.Policy;
 import com.insurance.entity.User;
 import com.insurance.exceptions.PolicyNotFoundException;
+import com.insurance.exceptions.UserNotFoundException;
 
 @RestController
 public class AdminController {
@@ -90,5 +91,39 @@ public class AdminController {
 			return "Policy in use, cannot be deleted.";
 		}
 	}
+	
+	
+	// ADMIN : Approve Policy
+	@RequestMapping(value = "/admin/{uid}/policy/{pid}", method = RequestMethod.PUT)
+	public ResponseEntity<Policy> applyPolicy(@PathVariable("uid") Integer uid, @PathVariable("pid") Integer pid,
+			@RequestBody Policy policy) {
 
+		// checking if policy exists
+		Optional<Policy> optP = policyRepo.findById(pid);
+		if (optP.isEmpty()) {
+			throw new PolicyNotFoundException();
+		}
+
+		// checking if user exists
+		Optional<User> optU = userRepo.findById(uid);
+		if (optU.isEmpty()) {
+			throw new UserNotFoundException();
+		}
+
+		Policy p = new Policy();
+		p = optP.get();
+
+		User u = new User();
+		u = optU.get();
+
+		// adding user id to the policy table
+		// either state 1 or 2, it is admin's choice
+		
+		p.setApproval(1);
+//		p.setApproval(2);
+		final Policy updatedPolicy = policyRepo.save(p);
+		return ResponseEntity.ok(updatedPolicy);
+
+	}
+	
 }

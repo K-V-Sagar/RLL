@@ -1,0 +1,12 @@
+// delete
+
+use insurance;
+set sql_safe_updates=0;
+delete from user where user_id=7;
+select * from user;
+
+
+// insert 
+use insurance;
+insert into user values(5,'BLR','mail','user','password','9123456789',null);
+select * from user;

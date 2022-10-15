@@ -3,7 +3,7 @@
 Login
 View all customers
 Policy page (CRUD)
-Approve Policy (0-not, 1-yes & 2-pending)
+Approve Policy (0-initial , 1-approved , 2-disapproved & 3-pending)
 Query page (View questions and write ans)
 
 
@@ -12,7 +12,9 @@ Query page (View questions and write ans)
 Create Account
 Login 
 Update Profile
-Apply policy page (view policies and apply)
+Apply policy page (view policies and apply -> policySate: changes from 0 to 3)
+(Sample flow: 0 -> 3 -> 1 or 2)
+
 History page (view all policies applied by user)
 Query page (Ask question)
 
@@ -23,3 +25,4 @@ Admin Portal
 User Portal
 About us
 Conatct us
+
