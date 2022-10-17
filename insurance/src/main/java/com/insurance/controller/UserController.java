@@ -93,6 +93,14 @@ public class UserController {
 
 	}
 
+	// USER: View available policies
+	@GetMapping("/user/policy")
+	public Iterator<Policy> availablePolicy() {
+		List<Policy> policy = policyRepo.findAvailPolicy();
+
+		return policy.iterator();
+	}
+
 	// USER : Apply Policy
 	@RequestMapping(value = "/user/{uid}/policy/{pid}", method = RequestMethod.PUT)
 	public ResponseEntity<Policy> applyPolicy(@PathVariable("uid") Integer uid, @PathVariable("pid") Integer pid,
