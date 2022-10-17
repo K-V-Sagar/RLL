@@ -119,8 +119,9 @@ public class AdminController {
 		// adding user id to the policy table
 		// either state 1 or 2, it is admin's choice
 		
-		p.setApproval(1);
-//		p.setApproval(2);
+		p.setApproval(policy.getApproval());
+		
+
 		final Policy updatedPolicy = policyRepo.save(p);
 		return ResponseEntity.ok(updatedPolicy);
 

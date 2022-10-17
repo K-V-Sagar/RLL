@@ -1,0 +1,29 @@
+Frontend: 
+
+1. Kanishka 
+	a) Admin Login 
+	b) View all users (table format)
+
+2. Lokesvaran
+	a) Create user 
+	b) Login user
+	c) Update user profile
+
+3. Manjunadh
+	a) Query -> Ask a question (user)
+	b) Answer the question (admin)
+
+4. Vinaysai
+	a) Dashboard -> Homepage, navbar (User, Admin, Aboutus, Contactus)
+	b) User (navbar-dropdown menu)
+	c) Admin (navbar-dropdown menu)
+
+5. Kumar
+	a) Policy page (CRUD) -> Create policy, update and delete (admin)
+
+6. Goutham
+	a) Apply policy (user)
+	b) History page (user)
+
+7. Naveen
+	a) Approve policy, Disapprove, Pending (Admin)
