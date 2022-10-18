@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.data.repository.query.Param;
 
 import com.insurance.entity.Policy;
-import com.insurance.entity.UserPolicy;
 
 @Repository
 public interface PolicyRepository extends JpaRepository<Policy, Integer>{

@@ -17,11 +17,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.insurance.dao.PolicyRepository;
-import com.insurance.dao.UPRepository;
 import com.insurance.dao.UserRepository;
 import com.insurance.entity.Policy;
 import com.insurance.entity.User;
-import com.insurance.entity.UserPolicy;
 import com.insurance.exceptions.PolicyNotFoundException;
 import com.insurance.exceptions.UserNotFoundException;
 import com.insurance.service.UserService;
@@ -35,8 +33,6 @@ public class UserController {
 	@Autowired
 	UserRepository userRepo;
 
-	@Autowired
-	UPRepository upRepo;
 
 	@Autowired
 	private UserService service;

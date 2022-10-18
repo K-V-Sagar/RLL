@@ -2,6 +2,7 @@ package com.insurance.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,7 @@ import com.insurance.entity.Policy;
 import com.insurance.entity.User;
 import com.insurance.exceptions.PolicyNotFoundException;
 import com.insurance.exceptions.UserNotFoundException;
+import com.insurance.service.UserService;
 
 @RestController
 public class AdminController {
@@ -28,9 +30,19 @@ public class AdminController {
 	@Autowired
 	UserRepository userRepo;
 
+	@Autowired
+	private UserService service;
+
 	// *****************************************
 	// ADMIN
 	// *****************************************
+
+	// ADMIN: Read all users
+	// ADMIN : List all Policies
+	@RequestMapping(value = "/admin/user", method = RequestMethod.GET)
+	public Iterable<User> ListUser() {
+		return userRepo.findAll();
+	}
 
 	// ADMIN : Create Policy
 	@RequestMapping(value = "/admin/policy", method = RequestMethod.POST)
@@ -65,12 +77,11 @@ public class AdminController {
 	@RequestMapping(value = "/admin/policy/{id}", method = RequestMethod.GET)
 	public Policy getPolicyById(@PathVariable("id") Integer id) {
 		Optional<Policy> optP = policyRepo.findById(id);
-		if(optP.isEmpty()) {
+		if (optP.isEmpty()) {
 			throw new PolicyNotFoundException();
 		}
 		return policyRepo.findById(id).get();
 	}
-
 
 	// ADMIN : Delete a Policy
 	@RequestMapping(value = "/admin/policy/{id}", method = RequestMethod.DELETE)
@@ -91,8 +102,7 @@ public class AdminController {
 			return "Policy in use, cannot be deleted.";
 		}
 	}
-	
-	
+
 	// ADMIN : Approve Policy
 	@RequestMapping(value = "/admin/{uid}/policy/{pid}", method = RequestMethod.PUT)
 	public ResponseEntity<Policy> applyPolicy(@PathVariable("uid") Integer uid, @PathVariable("pid") Integer pid,
@@ -118,13 +128,12 @@ public class AdminController {
 
 		// adding user id to the policy table
 		// either state 1 or 2, it is admin's choice
-		
+
 		p.setApproval(policy.getApproval());
-		
 
 		final Policy updatedPolicy = policyRepo.save(p);
 		return ResponseEntity.ok(updatedPolicy);
 
 	}
-	
+
 }
